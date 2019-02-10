@@ -3,10 +3,13 @@ import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
 import { Form, Item, Input, Label } from 'native-base';
 
 export default class PostForm extends Component {
+  static defaultProps = {
+    post: {}
+  }
 
   state = {
-    title: "",
-    body: ""
+    title: this.props.title || "",
+    body: this.props.body || ""
   }
 
   submitForm = () => {
@@ -36,7 +39,7 @@ export default class PostForm extends Component {
           />
         </Item>
         <Button 
-          title="Save Post"
+          title={this.props.buttonTitle}
           onPress={this.submitForm}
         />
       </Form>

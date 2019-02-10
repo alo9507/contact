@@ -20,12 +20,13 @@ class NewPost extends Component {
   newPost = ({ title, body }) => {
     this.setState({loading: true})
 
-    const { newPost, navigation } = this.props;
+    const { newPost, navigation, screenProps } = this.props;
 
     newPost({
       variables: {
         title,
-        body
+        body,
+        userId: screenProps.user.id
       }
     })
     .then(() => {
@@ -38,22 +39,21 @@ class NewPost extends Component {
   }
 
   render() {
-
     const { loading } = this.state;
 
     if (loading) return <ActivityIndicator size="large"/>;
 
     return (
       <View>
-        <PostForm onSubmit={this.newPost} />
+        <PostForm onSubmit={this.newPost} buttonTitle="Save Post" />
       </View>
     );
   }
 }
 
 const newPost = gql`
-mutation newPost($title: String!, $body: String!) {
-  createPost(title: $title, body: $body) {
+mutation newPost($title: String!, $body: String!, $userId: ID!) {
+  createPost(title: $title, body: $body, userId: $userId) {
     id
   }
 }
@@ -62,6 +62,6 @@ mutation newPost($title: String!, $body: String!) {
 export default graphql(newPost, {
   name: 'newPost',
   options: {
-    refetchQueries: ["fetchAllPosts"]
+    refetchQueries: ["userQuery"]
   }
 })(NewPost);

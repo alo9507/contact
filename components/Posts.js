@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import { View, Text, FlatList, ActivityIndicator } from 'react-native';
 import { List, ListItem, Body, Right, Icon } from 'native-base';
-import gql from 'graphql-tag';
-import { graphql } from 'react-apollo';
 
 class Posts extends Component {
   render() {
     
-    const { allPosts, loading, navigation } = this.props;
+    const { allPosts, loading, navigation, screenProps } = this.props;
 
     if (loading) return <ActivityIndicator size="large"/>;
     
@@ -15,7 +13,7 @@ class Posts extends Component {
       <View>
         <List>
           <FlatList 
-            data={allPosts}
+            data={screenProps.user.posts}
             renderItem={({item}) => (
             <ListItem
               onPress={() => navigation.navigate('post', {
@@ -39,15 +37,4 @@ class Posts extends Component {
   }
 }
 
-const getAllPosts = gql`
-query fetchAllPosts {
-  allPosts(orderBy: createdAt_DESC) {
-    id
-    title
-  }
-}
-`
-
-export default graphql(getAllPosts, {
-  props: ({data}) => ({...data})
-})(Posts);
+export default Posts;

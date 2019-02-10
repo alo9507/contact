@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { View, Text, Button, StyleSheet, TouchableHighlight } from 'react-native';
+import { View, Text, Button, StyleSheet, TouchableHighlight, ActivityIndicator } from 'react-native';
 import { Fab, Icon } from 'native-base';
 
 import defaultNavigationStyles from '../../styles/defaultNavigationStyles';
 
 import Posts from '../Posts';
 import defaultContainerStyles from '../../styles/defaultContainerStyles';
+import { signOut } from '../../shared/loginUtils';
 
 class Home extends Component {
   static navigationOptions = {
@@ -17,6 +18,13 @@ class Home extends Component {
     return (
       <View style = {styles.container}>
         <Posts {...this.props}/>
+        <Button 
+          onPress={() => {
+            signOut();
+            this.props.client.resetStore();
+          }}
+          title="Logout"
+        />
         <Fab
           onPress={() => this.props.navigation.navigate('newPost')}
           style={styles.fab}

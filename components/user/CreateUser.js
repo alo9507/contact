@@ -13,18 +13,11 @@ class CreateUser extends Component {
       const user = await this.props.createUser({
         variables: {email, password}
       });
-
       const signin = await this.props.signinUser({
         variables: {email, password}
-      })
-      .then(() => {
-        const resetAction = StackActions.reset({
-          index: 0,
-          actions: [NavigationActions.navigate({ routeName: 'home' })],
-        });
-        this.props.navigation.dispatch(resetAction);
       });
-      
+      signIn(signin.data.signinUser.token);
+      this.props.client.resetStore();
     } catch (error) {
       console.log(error);
     }

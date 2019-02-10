@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Button } from 'react-native';
+import { withApollo } from 'react-apollo';
 
 import CreateUser from '../CreateUser';
 import LoginUser from '../LoginUser';
 
-export default class Login extends Component {
+class Login extends Component {
   
   state = {
-    register: true
+    register: false
   }
 
   render() {
@@ -34,4 +35,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center'
   }
-})
+});
+
+export default withApollo(Login);
