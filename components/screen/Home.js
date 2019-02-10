@@ -18,13 +18,6 @@ class Home extends Component {
     return (
       <View style = {styles.container}>
         <Posts {...this.props}/>
-        <Button 
-          onPress={() => {
-            signOut();
-            this.props.client.resetStore();
-          }}
-          title="Logout"
-        />
         <Fab
           onPress={() => this.props.navigation.navigate('newPost')}
           style={styles.fab}
