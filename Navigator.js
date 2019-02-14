@@ -4,7 +4,7 @@ import gql from 'graphql-tag';
 import { ActivityIndicator } from 'react-native';
 import { withApollo } from 'react-apollo';
 
-import Ionicons from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
 
 import Settings from './components/settings/Settings';
 
@@ -12,6 +12,7 @@ import {
   createBottomTabNavigator,
   createStackNavigator,
   createAppContainer,
+  createDrawerNavigator
 } from 'react-navigation';
 import { View, Text, Button } from 'react-native';
 
@@ -25,6 +26,9 @@ import UpdatePost from './components/screen/UpdatePost';
 import HomeTab from './components/tabs/HomeTab';
 
 const AppNavigator = createStackNavigator({
+  splash: {
+    screen: Splash
+  },
   home: {
     screen: Home
   },
@@ -44,7 +48,20 @@ const SettingsStack = createStackNavigator({
 });
 
 const MainStack = createAppContainer(createBottomTabNavigator({
-  Home: AppNavigator,
+  Home: {
+    screen: AppNavigator,
+    navigationOptions: {
+      header:null,
+      tabBarLabel: '房子',
+      tabBarIcon: ({focused}) => (
+          <Ionicons
+              name={focused ? 'ios-people' : 'ios-camera'}
+              size={45}
+              style={{ color: focused ? '#33A3F4' : '#949494'}}
+          />
+      )
+  }
+  },
   Settings: SettingsStack
   },
   {

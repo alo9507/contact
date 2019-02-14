@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Image, StyleSheet } from 'react-native';
 import { StackActions, NavigationActions } from 'react-navigation';
 
+import { defaultContainerStyles } from '../../styles/defaultContainerStyles';
+
 export default class Splash extends Component {
+  static navigationOptions = {
+    header: null
+  }
+
   componentDidMount() {
     setTimeout(
       () => {
@@ -12,15 +18,32 @@ export default class Splash extends Component {
         });
         this.props.navigation.dispatch(resetAction);
       },
-      0.5 * 1000
+      3 * 1000
     );
   }
 
   render() {
     return (
-      <View>
-        <Text> Splash </Text>
+      <View style={styles.container}>
+        <Image
+          style={styles.backgroundImage}
+          source={require('../../assets/Contact.jpg')}
+        />
       </View>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignContent: 'center',
+    justifyContent: 'center'
+  },
+  backgroundImage: {
+    alignSelf: 'center',
+    height: 150,
+    width: 150,
+    borderRadius: 75
+  }
+});
