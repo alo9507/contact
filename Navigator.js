@@ -21,6 +21,7 @@ import Settings from './components/settings/Settings';
 import Login from './components/user/screen/Login';
 import MyProfile from './components/screen/MyProfile';
 import DetailProfile from './components/screen/DetailProfile';
+import Chat from './components/screen/Chat';
 
 import Post from './components/screen/Post';
 import NewPost from './components/screen/NewPost';
@@ -33,6 +34,9 @@ const SpotFeedStack = createStackNavigator({
   },
   detailProfile: {
     screen: DetailProfile
+  },
+  chat: {
+    screen: Chat
   }
   },
   {

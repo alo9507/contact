@@ -9,9 +9,10 @@ export default class DetailProfile extends Component {
       title: `${navigation.state.params.name}`,
       headerRight:  (
       <Ionicons 
-        name={'md-person-add'} 
+        name={'ios-chatbubbles'} 
         size={35} 
         style={{ color: '#3DE9E3'}} 
+        onPress={() => navigation.navigate('chat')}
       />),
       headerRightContainerStyle: {marginRight: 22}
       }
@@ -28,6 +29,7 @@ export default class DetailProfile extends Component {
           source={{uri: `${navigation.state.params.imgUrl}`}}
         />
         <Text>{navigation.state.params.name}</Text>
+        <Text>{navigation.state.params.profession}</Text>
         <Text>{navigation.state.params.whatImDoing}</Text>
       </View>
     );

@@ -7,12 +7,12 @@ class Profiles extends Component {
 
   state = {
     profiles: [
-      {name: 'Andrew', whatImDoing: 'Working on the UI for Contact', imgUrl: 'http://lorempixel.com/300/300', id: '123'},
-      {name: 'Bill', whatImDoing: 'Developing the Instagram for Elite Detroit', imgUrl: 'http://lorempixel.com/300/300', id: '124'},
-      {name: 'Tatyana', whatImDoing: 'Working on the UI for Contact', imgUrl: 'http://lorempixel.com/300/300', id: '125'},
-      {name: 'Kumar', whatImDoing: 'Working on the UI for Contact', imgUrl: 'http://lorempixel.com/300/300', id: '126'},
-      {name: 'Yessica', whatImDoing: 'Working on the UI for Contact', imgUrl: 'http://lorempixel.com/300/300', id: '127'},
-      {name: 'Mariana', whatImDoing: 'Working on the UI for Contact', imgUrl: 'http://lorempixel.com/300/300', id: '128'},
+      {name: 'Andrew', whatImDoing: 'Working on the UI for Contact', profession: 'Software Engineer', imgUrl: 'http://lorempixel.com/300/300', id: '123'},
+      {name: 'Bill', whatImDoing: 'Developing the Instagram for Elite Detroit', profession: 'Community Organizer', imgUrl: 'http://lorempixel.com/300/300', id: '124'},
+      {name: 'Tatyana', whatImDoing: 'Working on the UI for Contact', profession: 'Drug Lord', imgUrl: 'http://lorempixel.com/300/300', id: '125'},
+      {name: 'Kumar', whatImDoing: 'Working on the UI for Contact', profession: 'Author', imgUrl: 'http://lorempixel.com/300/300', id: '126'},
+      {name: 'Yessica', whatImDoing: 'Working on the UI for Contact', profession: 'Professor', imgUrl: 'http://lorempixel.com/300/300', id: '127'},
+      {name: 'Mariana', whatImDoing: 'Working on the UI for Contact', profession: 'Human Trafficker', imgUrl: 'http://lorempixel.com/300/300', id: '128'},
     ]
   }
 
@@ -36,7 +36,8 @@ class Profiles extends Component {
               id: item.id,
               name: item.name,
               whatImDoing: item.whatImDoing,
-              imgUrl: item.imgUrl
+              imgUrl: item.imgUrl,
+              profession: item.profession
             })}
           >
             <Profile 
@@ -44,6 +45,7 @@ class Profiles extends Component {
               imgUrl={item.imgUrl}
               whatImDoing={item.whatImDoing}
               id={item.id}
+              profession={item.profession}
             />
           </TouchableOpacity>
             )}

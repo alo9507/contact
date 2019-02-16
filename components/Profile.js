@@ -4,7 +4,7 @@ import { View, Text, Image, StyleSheet } from 'react-native';
 export default class Profile extends Component {
 
   render() {
-    const { name, imgUrl, whatImDoing } = this.props;
+    const { name, imgUrl, whatImDoing, profession } = this.props;
     return (
         <View style={styles.profileContainer}>
           <Image
@@ -13,6 +13,7 @@ export default class Profile extends Component {
           />
           <View style={styles.descriptionText}>
             <Text style={{...styles.profileText, ...styles.profileName}}>{name}</Text>
+            <Text style={{...styles.profileText, ...styles.profileProfession}}>{profession}</Text>
             <Text style={styles.profileText}>{whatImDoing}</Text>
           </View>
         </View>
@@ -25,9 +26,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     flex: 0,
-    margin: 10,
+    margin: 2,
     borderRadius: 60,
-    backgroundColor: "#652450"
+    borderColor: '#652450'
   },
   descriptionText: {
     alignContent: "space-between",
@@ -45,6 +46,10 @@ const styles = StyleSheet.create({
   profileText: {
     fontSize: 15,
     color: "#3DE9E3"
+  },
+  profileProfession: {
+    fontSize: 16,
+    color: 'grey'
   },
   profileName: {
     fontSize: 20,
