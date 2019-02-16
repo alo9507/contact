@@ -13,20 +13,13 @@ import { signOut } from '../../shared/loginUtils';
 
 class Home extends Component {
   static navigationOptions = {
-    title: 'Spot Feed',
-    headerRight:  (
-    <Ionicons 
-      name={'md-person-add'} 
-      size={35} 
-      style={{ color: '#33A3F4'}} 
-    />),
-    headerRightContainerStyle: {marginRight: 22}
+    title: 'Spot Feed'
   }
 
   render() {
     return (
       <View style = {styles.container}>
-        <Profiles />
+        <Profiles {...this.props}/>
         <Fab
           onPress={() => this.props.navigation.navigate('newPost')}
           style={styles.fab}

@@ -1,43 +1,38 @@
+// GENERAL IMPORTS
 import React from 'react';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
-import { ActivityIndicator } from 'react-native';
 import { withApollo } from 'react-apollo';
-
-import { Ionicons } from '@expo/vector-icons';
-
-import Settings from './components/settings/Settings';
-
 import {
   createBottomTabNavigator,
   createStackNavigator,
-  createAppContainer,
-  createDrawerNavigator
+  createAppContainer
 } from 'react-navigation';
-import { View, Text, Button } from 'react-native';
 
+// COMPONENT IMPORTS
+  // 3rd Party Components
+import { ActivityIndicator } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
+
+  // Custom Components
+import Splash from './components/screen/Splash';
 import Home from './components/screen/Home';
+import Settings from './components/settings/Settings';
+import Login from './components/user/screen/Login';
+import MyProfile from './components/screen/MyProfile';
+import DetailProfile from './components/screen/DetailProfile';
+
 import Post from './components/screen/Post';
 import NewPost from './components/screen/NewPost';
-import Splash from './components/screen/Splash';
-import Login from './components/user/screen/Login';
 import UpdatePost from './components/screen/UpdatePost';
-import MyProfile from './components/screen/MyProfile';
 
-import HomeTab from './components/tabs/HomeTab';
-
-const AppNavigator = createStackNavigator({
+// StackNavigators
+const SpotFeedStack = createStackNavigator({
   home: {
     screen: Home
   },
-  post: {
-    screen: Post
-  },
-  newPost: {
-    screen: NewPost
-  },
-  updatePost: {
-    screen: UpdatePost
+  detailProfile: {
+    screen: DetailProfile
   }
   },
   {
@@ -91,16 +86,16 @@ const ProfileStack = createStackNavigator({
   }
 );
 
-const MainStack = createAppContainer(createBottomTabNavigator({
+const TabNav = createAppContainer(createBottomTabNavigator({
   SpotFeed: {
-    screen: AppNavigator,
+    screen: SpotFeedStack,
     navigationOptions: {
       header:null,
       tabBarIcon: ({focused}) => (
           <Ionicons
               name={'ios-planet'}
               size={45}
-              style={{ color: focused ? '#33A3F4' : '#949494'}}
+              style={{ color: focused ? '#3DE9E3' : '#949494'}}
           />
       )
     }
@@ -113,7 +108,7 @@ const MainStack = createAppContainer(createBottomTabNavigator({
         <Ionicons
             name={'md-settings'}
             size={45}
-            style={{ color: focused ? '#33A3F4' : '#949494'}}
+            style={{ color: focused ? '#3DE9E3' : '#949494'}}
         />
     )
       }
@@ -126,7 +121,7 @@ const MainStack = createAppContainer(createBottomTabNavigator({
         <Ionicons
             name={'md-person'}
             size={45}
-            style={{ color: focused ? '#33A3F4' : '#949494'}}
+            style={{ color: focused ? '#3DE9E3' : '#949494'}}
         />
       )
       }
@@ -147,9 +142,10 @@ const MainStack = createAppContainer(createBottomTabNavigator({
 const NavWrapper = ({ loading, user }) => {
   if (loading) return <ActivityIndicator size="large" />;
   if (!user) return <Login />
-  return <MainStack screenProps={{user}} />;
+  return <TabNav screenProps={{user}} />;
 }
 
+// QUERIES
 const userQuery = gql`
   query userQuery {
     user {
@@ -164,6 +160,7 @@ const userQuery = gql`
   }
 `
 
+// DEFAULT EXPORT
 export default graphql(userQuery, {
   props: ({data}) => ({...data})
 })(NavWrapper);
