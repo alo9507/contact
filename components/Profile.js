@@ -23,7 +23,8 @@ export default class Profile extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    flexDirection: 'row'
   },
   profileContainer: {
     backgroundColor: "#652450",

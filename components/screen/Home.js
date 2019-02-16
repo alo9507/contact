@@ -3,20 +3,24 @@ import { View, Text, Button, StyleSheet, TouchableHighlight, ActivityIndicator }
 import { Fab, Icon } from 'native-base';
 import Profiles from '../Profiles';
 
+import { Ionicons } from '@expo/vector-icons';
+
 import defaultNavigationStyles from '../../styles/defaultNavigationStyles';
 
 import Posts from '../Posts';
 import defaultContainerStyles from '../../styles/defaultContainerStyles';
 import { signOut } from '../../shared/loginUtils';
-import Ionicons from '@expo/vector-icons/Ionicons';
 
 class Home extends Component {
   static navigationOptions = {
-    title: 'Home',
-    ...defaultNavigationStyles,
-    tabBarIcon: () => (
-      <Ionicons name="md-checkmark-circle" />
-    )
+    title: 'Spot Feed',
+    headerRight:  (
+    <Ionicons 
+      name={'md-person-add'} 
+      size={35} 
+      style={{ color: '#33A3F4'}} 
+    />),
+    headerRightContainerStyle: {marginRight: 22}
   }
 
   render() {

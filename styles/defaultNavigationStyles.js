@@ -6,5 +6,5 @@ export default {
   headerTitleStyle: {
     color: "#3DE9E3"
   },
-  headerTintColor: "#3DE9E3"  
+  headerTintColor: "#3DE9E3"
 }

@@ -22,13 +22,11 @@ import NewPost from './components/screen/NewPost';
 import Splash from './components/screen/Splash';
 import Login from './components/user/screen/Login';
 import UpdatePost from './components/screen/UpdatePost';
+import MyProfile from './components/screen/MyProfile';
 
 import HomeTab from './components/tabs/HomeTab';
 
 const AppNavigator = createStackNavigator({
-  splash: {
-    screen: Splash
-  },
   home: {
     screen: Home
   },
@@ -41,34 +39,107 @@ const AppNavigator = createStackNavigator({
   updatePost: {
     screen: UpdatePost
   }
-});
+  },
+  {
+  defaultNavigationOptions: {
+    headerStyle: {
+      backgroundColor: "#652450",
+      borderBottomWidth: 0
+    },
+    headerTitleStyle: {
+      color: "#3DE9E3"
+    },
+    headerTintColor: "#3DE9E3"
+  }
+  });
 
 const SettingsStack = createStackNavigator({
-  Settings: withApollo(Settings)
-});
+  Settings: {
+    screen: withApollo(Settings)
+  }
+  },
+  {
+    defaultNavigationOptions: {
+      headerStyle: {
+        backgroundColor: "#652450",
+        borderBottomWidth: 0
+      },
+      headerTitleStyle: {
+        color: "#3DE9E3"
+      },
+      headerTintColor: "#3DE9E3"
+    }
+  }
+);
+
+const ProfileStack = createStackNavigator({
+  MyProfile: {
+    screen: withApollo(MyProfile)
+  }
+  },
+  {
+    defaultNavigationOptions: {
+      headerStyle: {
+        backgroundColor: "#652450",
+        borderBottomWidth: 0
+      },
+      headerTitleStyle: {
+        color: "#3DE9E3"
+      },
+      headerTintColor: "#3DE9E3"
+    }
+  }
+);
 
 const MainStack = createAppContainer(createBottomTabNavigator({
-  Home: {
+  SpotFeed: {
     screen: AppNavigator,
     navigationOptions: {
       header:null,
-      tabBarLabel: '房子',
       tabBarIcon: ({focused}) => (
           <Ionicons
-              name={focused ? 'ios-people' : 'ios-camera'}
+              name={'ios-planet'}
               size={45}
               style={{ color: focused ? '#33A3F4' : '#949494'}}
           />
       )
-  }
+    }
   },
-  Settings: SettingsStack
+  Settings: {
+    screen: SettingsStack,
+    navigationOptions: {
+      header: null,
+      tabBarIcon: ({focused}) => (
+        <Ionicons
+            name={'md-settings'}
+            size={45}
+            style={{ color: focused ? '#33A3F4' : '#949494'}}
+        />
+    )
+      }
+    },
+  Profile: {
+    screen: ProfileStack,
+    navigationOptions: {
+      header: null,
+      tabBarIcon: ({focused}) => (
+        <Ionicons
+            name={'md-person'}
+            size={45}
+            style={{ color: focused ? '#33A3F4' : '#949494'}}
+        />
+      )
+      }
+    }
   },
   {
+    initialRouteName: 'SpotFeed',
+    order: ['Profile', 'SpotFeed', 'Settings'],
     tabBarOptions: {
       style: {backgroundColor: '#652450'},
       activeTintColor: "#3DE9E3",
       inactiveTintColor: 'grey',
+      showLabel: false
     }
   })
 );

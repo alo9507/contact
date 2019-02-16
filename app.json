@@ -12,7 +12,7 @@
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
-      "image": "./assets/Contact.jpg",
+      "image": "./assets/Contact.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
