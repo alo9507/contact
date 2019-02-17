@@ -26,9 +26,13 @@ import Chat from './components/screen/Chat';
 import Post from './components/screen/Post';
 import NewPost from './components/screen/NewPost';
 import UpdatePost from './components/screen/UpdatePost';
+import SubChat from './components/screen/SubChat';
 
 // StackNavigators
 const SpotFeedStack = createStackNavigator({
+  subChat: {
+    screen: SubChat
+  },
   home: {
     screen: Home
   },

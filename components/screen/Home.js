@@ -21,17 +21,12 @@ class Home extends Component {
       <View style = {styles.container}>
         <Profiles {...this.props}/>
         <Fab
-          onPress={() => this.props.navigation.navigate('newPost')}
-          style={styles.fab}
-        >
-          <Icon name="add" style={{color: "#652450"}} />
-        </Fab>
-        <Fab
-          onPress={() => this.props.navigation.navigate('newPost')}
+          onPress={() => this.props.navigation.navigate('subChat')}
           style={styles.fab}
         >
           <Icon name="add" style={{color: "#3DE9E3", fontWeight: 'bold',}} />
         </Fab>
+
       </View>
     );
   }
