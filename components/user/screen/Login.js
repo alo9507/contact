@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Button } from 'react-native';
+import { View, Text, StyleSheet, Button, Image } from 'react-native';
 import { withApollo } from 'react-apollo';
 
 import CreateUser from '../CreateUser';
@@ -14,6 +14,10 @@ class Login extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <Image
+        style={styles.logo}
+          source={require('../../../assets/Contact.png')}
+        />
       {
         this.state.register ? (
           <CreateUser {...this.props}/>
@@ -33,7 +37,13 @@ class Login extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center'
+    justifyContent: 'center',
+    backgroundColor: "#7B466A"
+  },
+  logo: {
+    width: 100,
+    height: 100,
+    alignSelf: 'center',
   }
 });
 

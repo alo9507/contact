@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 import { StackActions, NavigationActions } from 'react-navigation';
@@ -24,7 +24,6 @@ class LoginUser extends Component {
   render() {
     return (
       <View>
-        <Text>Login</Text>
         <UserForm 
           type="Login"
           onSubmit={this.signinUser}
@@ -41,5 +40,11 @@ const signinUser = gql`
     }
   }
 `;
+
+const styles = StyleSheet.create({
+  header: {
+    color: "white"
+  }
+});
 
 export default graphql(signinUser, { name: 'signinUser' })(LoginUser);

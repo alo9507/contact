@@ -30,11 +30,11 @@ import SubChat from './components/screen/SubChat';
 
 // StackNavigators
 const SpotFeedStack = createStackNavigator({
-  subChat: {
-    screen: SubChat
-  },
   home: {
     screen: Home
+  },
+  subChat: {
+    screen: SubChat
   },
   detailProfile: {
     screen: DetailProfile

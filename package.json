@@ -4,7 +4,11 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "eject": "expo eject"
+    "eject": "expo eject",
+    "test": "jest"
+  },
+  "jest": {
+    "preset": "react-native"
   },
   "dependencies": {
     "@expo/vector-icons": "^9.0.0",
@@ -14,20 +18,34 @@
     "apollo-link-context": "^1.0.14",
     "apollo-link-http": "^1.5.11",
     "apollo-link-ws": "^1.0.14",
+    "concurrently": "^3.5.1",
+    "detox": "^10.0.9",
+    "detox-expo-helpers": "^0.6.0",
     "expo": "^32.0.0",
+    "expo-detox-hook": "^1.0.10",
     "graphql": "^14.1.1",
     "graphql-tag": "^2.10.1",
+    "jest-expo": "26.0.0",
     "native-base": "^2.11.0",
     "react": "16.5.0",
     "react-apollo": "^2.4.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz",
     "react-native-gifted-chat": "^0.7.2",
+    "react-native-scripts": "1.13.1",
+    "react-native-testing-library": "^1.5.0",
     "react-native-vector-icons": "^6.2.0",
     "react-navigation": "^3.1.4",
+    "rimraf": "^2.6.2",
     "subscriptions-transport-ws": "^0.9.15"
   },
   "devDependencies": {
-    "babel-preset-expo": "^5.0.0"
+    "babel-jest": "^24.1.0",
+    "babel-preset-expo": "^5.0.0",
+    "babel-preset-react-native": "^4.0.1",
+    "jest": "^24.1.0",
+    "jest-expo": "^32.0.0",
+    "jest-react-native": "^18.0.0",
+    "react-test-renderer": "^16.8.3"
   },
   "private": true
 }

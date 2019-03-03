@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import { graphql, compose } from 'react-apollo';
 import gql from 'graphql-tag';
 import { StackActions, NavigationActions } from 'react-navigation';
@@ -26,7 +26,6 @@ class CreateUser extends Component {
   render() {
     return (
       <View>
-        <Text>Register</Text>
         <UserForm 
           type="Register"
           onSubmit={this.createUser}
@@ -51,6 +50,12 @@ const signinUser = gql`
     }
   }
 `;
+
+const styles = StyleSheet.create({
+  header: {
+    color: "white"
+  }
+});
 
 export default compose(
   graphql(createUser, { name: 'createUser' }),

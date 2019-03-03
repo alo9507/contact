@@ -23,7 +23,11 @@
       "**/*"
     ],
     "ios": {
+      "bundleIdentifier": "com.contanct.app",
       "supportsTablet": true
+    },
+    "android": {
+      "package": "com.contanct.app"
     }
   }
 }

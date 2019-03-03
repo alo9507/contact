@@ -12,21 +12,24 @@ import defaultContainerStyles from '../../styles/defaultContainerStyles';
 import { signOut } from '../../shared/loginUtils';
 
 class Home extends Component {
-  static navigationOptions = {
-    title: 'Spot Feed'
-  }
+  static navigationOptions = ({ navigation }) => {
+    return {
+      title: 'Spot Feed',
+      headerLeft:  (
+      <Ionicons 
+        name={'ios-menu'} 
+        size={35} 
+        style={{ color: '#3DE9E3'}} 
+        onPress={() => navigation.openDrawer()}
+      />),
+      headerLeftContainerStyle: {marginLeft: 22}
+      }
+    }
 
   render() {
     return (
       <View style = {styles.container}>
         <Profiles {...this.props}/>
-        <Fab
-          onPress={() => this.props.navigation.navigate('subChat')}
-          style={styles.fab}
-        >
-          <Icon name="add" style={{color: "#3DE9E3", fontWeight: 'bold',}} />
-        </Fab>
-
       </View>
     );
   }

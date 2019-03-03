@@ -23,14 +23,17 @@ export default class DetailProfile extends Component {
     const { navigation } = this.props;
 
     return (
-      <View>
+      <View style = {styles.container}>
         <Image
           style={styles.profileImage}
           source={{uri: `${navigation.state.params.imgUrl}`}}
         />
-        <Text>{navigation.state.params.name}</Text>
-        <Text>{navigation.state.params.profession}</Text>
-        <Text>{navigation.state.params.whatImDoing}</Text>
+        <Text style={styles.text}>{navigation.state.params.name}</Text>
+        <Text style={styles.text}>{navigation.state.params.profession}</Text>
+        <Text style={styles.text}>{navigation.state.params.whatImDoing}</Text>
+        <Text style={styles.text}>Bio</Text>
+        <Text style={styles.text}>Skills</Text>
+        <Text style={styles.text}>What I'm Looking for in Collaborators</Text>
       </View>
     );
   }
@@ -39,9 +42,19 @@ export default class DetailProfile extends Component {
 const styles = StyleSheet.create({
   profileImage: {
     margin: 10,
-    width: 80,
-    height: 80, 
+    marginBottom: 40,
+    width: 200,
+    height: 200, 
     borderRadius: 40
+  },
+  container: {
+    backgroundColor: "#7B466A",
+    flex: 1,
+    alignItems: 'center'
+  },
+  text: {
+    color: '#3DE9E3',
+    fontSize: 20,
   }
 });
 
