@@ -1,18 +1,18 @@
 {
   "expo": {
-    "name": "journal2",
-    "slug": "journal2",
+    "name": "Contact",
+    "slug": "contact",
     "privacy": "public",
     "sdkVersion": "32.0.0",
     "platforms": [
       "ios",
       "android"
     ],
-    "version": "1.0.0",
+    "version": "1.0.0-alpha",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/contact.png",
     "splash": {
-      "image": "./assets/Contact.png",
+      "image": "./assets/contact.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -23,11 +23,11 @@
       "**/*"
     ],
     "ios": {
-      "bundleIdentifier": "com.contanct.app",
+      "bundleIdentifier": "com.contact.contact",
       "supportsTablet": true
     },
     "android": {
-      "package": "com.contanct.app"
+      "package": "com.contact.contact"
     }
   }
 }

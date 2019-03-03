@@ -16,7 +16,7 @@ class Login extends Component {
       <View style={styles.container}>
         <Image
         style={styles.logo}
-          source={require('../../../assets/Contact.png')}
+          source={require('../../../assets/contact.png')}
         />
       {
         this.state.register ? (

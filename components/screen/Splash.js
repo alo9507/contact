@@ -27,7 +27,7 @@ export default class Splash extends Component {
       <View style={styles.container}>
         <Image
           style={styles.backgroundImage}
-          source={require('../../assets/Contact.png')}
+          source={require('../../assets/contact.png')}
         />
       </View>
     );
