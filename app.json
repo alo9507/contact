@@ -1,6 +1,7 @@
 {
   "expo": {
     "name": "Contact",
+    "description": "Contact is here.",
     "slug": "contact",
     "privacy": "public",
     "sdkVersion": "32.0.0",
