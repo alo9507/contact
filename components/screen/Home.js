@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Button, StyleSheet, TouchableHighlight, ActivityIndicator } from 'react-native';
+import { View, Text, Button, StyleSheet, TouchableHighlight, ActivityIndicator, Alert } from 'react-native';
 import { Fab, Icon } from 'native-base';
 import Profiles from '../Profiles';
 
@@ -26,10 +26,32 @@ class Home extends Component {
       }
     }
 
+    constructor(props) {
+      super(props);
+  
+      this.state = {
+        location: null,
+        error: null,
+      };
+    }
+
+    componentDidMount() {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const location = JSON.stringify(position);
+
+          this.setState({ location });
+        },
+        error => Alert.alert(error.message),
+        { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 },
+      );
+    }
+
   render() {
     return (
       <View style = {styles.container}>
         <Profiles {...this.props}/>
+        <Text>Location: {this.state.location}</Text>
       </View>
     );
   }
